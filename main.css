@@ -1,0 +1,113 @@
+@font-face {
+  font-family: kopub-b;
+  src: url(font/KoPubWorldDotumBold.ttf);
+}
+@font-face {
+  font-family: kopub-m;
+  src: url(font/KoPubWorldDotumMedium.ttf);
+}
+@font-face {
+  font-family: kopub-l;
+  src: url(font/KoPubDotumLight.ttf);
+}
+body {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+} 
+.number-box, .id-box, .alert-box-gray, .alert-box-blue, .alert-box-yellow {
+  padding: 20px;
+  width: 50vw;
+  height: 65px;
+  border-radius: 10px;
+  font-family: kopub-m;
+  letter-spacing: 0.3px;
+  margin-top: 15px;
+}
+
+.alert-box-yellow {
+  background-color: rgb(255, 242, 176);
+  color: rgb(136, 100, 0);
+}
+
+.alert-box-blue {
+  background-color: rgb(192, 220, 245);
+  color: rgb(25, 66, 128);
+}
+
+.alert-box-gray {
+  background-color: rgb(197, 196, 196);
+  color: rgb(77, 77, 77);
+}
+
+i {
+  font-size: 20px;
+  float: right;
+}
+
+.id-button, .red-button {
+  padding: 10px;
+  width: 80px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.red-button {
+  background-color: rgb(201, 44, 44);
+}
+
+.id-box {
+  border: 1px solid black;
+  display: none;
+}
+
+.id-button {
+  background-color: rgb(59, 59, 59);
+}
+
+.list {
+  overflow: hidden;
+  padding: 0;
+  transition: all 1s;
+  opacity: 0;
+  height: 0;
+}
+
+.show {
+  overflow: visible;
+  opacity: 1;
+  height: 200px;
+}
+
+.black-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  padding: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.number-box {
+  background-color: rgb(239, 239, 239);
+  border: none;
+}/*# sourceMappingURL=main.css.map */

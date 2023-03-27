@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+    <link href="fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark ms-auto mx-3">Dark mode</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav> 
+
+    <ul class="list">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>Login</h4>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+            <button class="btn btn-danger" id="close">Close</button>
+          </form>
+        
+        </div>
+      </div> 
+    <div style="padding-left:20px;" >
+        
+    
+        <div class="alert-box-yellow" id="alert-box">
+            <div style="float:left;"><span style="font-family: kopub-b;">Holy guacamole!</span> 
+                You should check in on some of those fields below.
+            </div>
+            <i class="fas fa-times" id="Close"></i>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="alert-box-blue" id="alert-box2">
+            <div style="float:left;"><span style="font-family: kopub-b;">Holy guacamole!</span> 
+                You should check in on some of those fields below.
+            </div>
+            <i class="fas fa-times" onclick="Alertbox2('none')"></i>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="alert-box-gray" id="alert-box3">
+            <div style="float:left;"><span style="font-family: kopub-b;">Holy guacamole!</span> 
+                You should check in on some of those fields below.
+            </div>
+            <i class="fas fa-times" onclick="Alertbox3('none')"></i>
+            <div style="clear:both;"></div>
+        </div>
+        <button class="red-button" onclick="Alertbox('block');">띄우기</button>
+    
+        <br>
+        <div class="id-box" id="id-box-i">아이디를 입력하세요</div>
+        <div class="id-box" id="id-box-p">비밀번호를 입력하세요</div>
+        <button class="id-button" onclick="Idbox('block');">아이디</button>
+        <button class="id-button" onclick="Passwordbox('block');">비밀번호</button>
+        <button class="id-button" id="test-btn">Login</button>
+    
+        <div style="margin-top:50px;"></div>
+        <form>
+            <input type="password" placeholder="삼육구게임:) 숫자를 입력하세요" class="number-box">
+            <div style="clear:both;margin-top:20px;"></div>
+            <button type="submit" class="btn btn-primary" id="submit-btn2">Submit</button>
+        </form>
+    </div>
+    
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+// '.badge'눌렀을 때 (변수문법을 이용해 횟수 기록하기)
+// 버튼 누른 횟수가 홀수면 내부 글자를 light로 변경하기
+// 버튼 누른 횟수가 짝수면 내부 글자를 dark로 변경하기
+
+var count=0;
+
+$('.badge').on('click',function(){
+    count++;
+    if(count % 2 == 0){
+        $('.badge').html('dark mode').addClass('bg-dark').css('color','white');
+        
+    }
+    else{
+        $('.badge').html('light mode').removeClass('bg-dark').addClass('bg-light').css('color','black');
+    }
+})
+
+    // 로그인버튼 눌렀을때 'black-bg'에 'show-modal'버튼 추가되게 하기
+    $('#test-btn').on('click',function(){
+        $('.black-bg').addClass('show-modal');
+    });
+    // 닫기 버튼 눌렀을때 'black-bg'의 'show-modal'버튼 사라지도록 하기
+    $('#close').on('click',function(){
+        $('.black-bg').removeClass('show-modal');
+    })
+    // 전송버튼 눌렀을때 "#exampleInputEmail1"이메일창과 '#exampleInputPassword1'비밀번호창에 입력한 값이 공백인 경우 알림 띄우기
+    // 전송버튼 눌렀을때 입력한 비밀번호가 6자 미만이면 알림띄우기
+
+    $('#submit-btn').on('click',function(){
+        if($('#exampleInputEmail1').val() == '') {
+            alert('이메일을 다시 입력하세요.');
+        }
+        if($('#exampleInputPassword1').val() == '') {
+            alert('비밀번호를 다시 입력하세요.');
+        }
+        if($('#exampleInputPassword1').val().length < 6) {
+            alert('비밀번호를 6자 이상으로 입력하세요')
+        }
+    })
+
+    // 전송버튼을 눌렀을 때 입력값이 3의 배수일 때 '통과'라는 글자가 떠야하고 , 3의 배수가 아닐 땐 '땡'라는 글자가 떠야한다
+    // 전송버튼을 눌렀을 때 입력값이 9의 배수일 때 '박수'라는 글자가 떠야 한다.
+    
+    $('#submit-btn2').on('click',function 삼육구게임(){
+        
+        if ($('.number-box').val() % 9 == 0){
+                alert('박수');
+        }
+        else if ($('.number-box').val() % 3 == 0){
+            alert('통과');
+        }
+        else {
+            alert('땡');
+        }
+    });
+
+    // 목록버튼 눌렀을때 'list'에 'show'가 추가되거나 사라지도록 toggle주기 
+    $('.navbar-toggler').on('click',function(){
+        $('.list').toggleClass('show');
+    });
+
+function Alertbox(구멍){
+    document.getElementById('alert-box').style.display = 구멍;
+}
+
+document.getElementById('Close').addEventListener('click',function(){
+    document.getElementById('alert-box').style.display = 'none';
+})
+
+function Alertbox2(구멍){
+    document.getElementById('alert-box2').style.display = 구멍;
+}
+function Alertbox3(구멍){
+    document.getElementById('alert-box3').style.display = 구멍;
+}
+
+function Idbox(구멍){
+    document.getElementById('id-box-i').style.display = 구멍;
+}
+function Passwordbox(구멍){
+    document.getElementById('id-box-p').style.display = 구멍;
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
